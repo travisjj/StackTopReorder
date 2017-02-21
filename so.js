@@ -20,9 +20,8 @@ function $$(f) {
 $$(function($){
     var logoLinks = $('.-main');
     var logo = $('a.-logo._glyph',logoLinks);
-	logo.css('width','25px');
-	$('span',logo).css('width','25px');
-    var url = $('span',logo).css('background-image');
+    logo.css('width','25px');
+    $('span',logo).css('width','25px');
     logoLinks.parent().append(logoLinks);
 
     var name = $('div.-actions a.my-profile.js-gps-track');
