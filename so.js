@@ -15,7 +15,6 @@
 	  if($("#search .btn.js-search-submit")){
 		observer.disconnect();
 		var logoLinks = $('.-main');
-		var logo = logoLinks.querySelector('a.-logo._glyph');
 		logoLinks.parentNode.appendChild(logoLinks);
 		
 		var name = $('div.-actions a.my-profile.js-gps-track');
