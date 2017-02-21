@@ -8,27 +8,25 @@
 // @include http://stackoverflow.com/*
 // @include *.stackexchange.com/*
 
-//jQuery injection
-function $$(f) {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.textContent = "(" + f.toString() + ")(jQuery)";
-    document.body.appendChild(script).parentNode.removeChild(script);
-};
+//main
+(function main() {
+	var $ = document.querySelector.bind(document);
+	var observer = new MutationObserver(function(mutations) {
+	  if($("#search .btn.js-search-submit")){
+		observer.disconnect();
+		var logoLinks = $('.-main');
+		var logo = logoLinks.querySelector('a.-logo._glyph');
+		logoLinks.parentNode.appendChild(logoLinks);
+		
+		var name = $('div.-actions a.my-profile.js-gps-track');
+		name.parentNode.appendChild(name);
 
-//reorder the new topbar
-$$(function($){
-    var logoLinks = $('.-main');
-    var logo = $('a.-logo._glyph',logoLinks);
-    logo.css('width','25px');
-    $('span',logo).css('width','25px');
-    logoLinks.parent().append(logoLinks);
-
-    var name = $('div.-actions a.my-profile.js-gps-track');
-    name.parent().append(name);
-    name.css('margin-right','35px');
-
-    var actions = $('div.-actions ol.-list');
-    actions.append(actions.children('li.-item').get().reverse());
-});
+		var actions = $('div.-actions ol.-list');
+		[].slice.call(actions.querySelectorAll('li.-item'),0).reverse().forEach(f => actions.appendChild(f));
+	  }
+	});
+	 	
+	var config = { attributes: false, childList: true, characterData: false };
+	observer.observe(document.documentElement, config);
+})();
 
