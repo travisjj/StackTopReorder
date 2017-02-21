@@ -4,3 +4,13 @@
 /* the important is required to prevent the inline style="right:800px"ish definition from
    taking precedence when the dropdown is first opened. The only other way would be to modify
    the actual script that creates the dropdown which is clearly not possible in this situation */
+
+.so-header.js-so-header._fixed .-main a.-logo._glyph{
+ width: 25px;
+}
+.so-header.js-so-header._fixed .-main a.-logo._glyph span{
+ width: 25px;
+}
+div.-actions a.my-profile.js-gps-track{
+ margin-right:35px;
+}
